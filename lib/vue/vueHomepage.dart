@@ -12,6 +12,7 @@ class myHomePage extends StatefulWidget {
   State<myHomePage> createState() => _myHomePageState();
 }
 
+
 class _myHomePageState extends State<myHomePage> {
   void verification(int choice){
     setState(() {
@@ -49,7 +50,7 @@ class _myHomePageState extends State<myHomePage> {
                  fixedSize: Size.fromHeight(50),
                  ),
                     onPressed: (){ verification(1);
-                    },
+                      },
                     child: Text(aH.getChoice1(),
                         style:
                         TextStyle( color: Colors.white,
@@ -65,25 +66,10 @@ class _myHomePageState extends State<myHomePage> {
             Expanded(
               flex:1,
               child:Padding(
-                padding: EdgeInsets.all(5.0),
-                child: Container(
+                padding: const EdgeInsets.all(5.0),
+                child: SizedBox(
                   height: 50,
-                  child: TextButton(
-                    style: TextButton.styleFrom(
-                    primary: Colors.blueAccent,
-                    backgroundColor: Colors.blueAccent.shade100,
-                    fixedSize: Size.fromHeight(50),
-                  ),
-                    onPressed: (){verification(2);},
-                    child:
-                    Text(aH.getChoice2(),
-                        style:
-                        TextStyle( color: Colors.white,
-                          //fontWeight: FontWeight,
-                          fontSize: 20,
-                        )
-                    ),
-                  ),
+                  child: _button1(),
                 ),
               ),
             ),
@@ -91,9 +77,38 @@ class _myHomePageState extends State<myHomePage> {
               height: 50,
             ),
           ],
-
         ),
       ),
     );
   }
+
+    _button1()  {
+     if (aH.getIndex() == 0 || aH.getIndex() == 1 || aH.getIndex() == 2) {
+       return TextButton(
+         style: TextButton.styleFrom(
+           primary: Colors.blueAccent,
+           backgroundColor: Colors.blueAccent.shade100,
+           fixedSize: Size.fromHeight(50),
+         ),
+         onPressed: () {
+           verification(2);
+         },
+         child:
+         Text(aH.getChoice2(),
+             style:
+             TextStyle(color: Colors.white,
+//fontWeight: FontWeight,
+               fontSize: 20,
+             )
+         ),
+       );
+     }else /*if (aH.getIndex() == 0 || aH.getIndex() == 1 || aH.getIndex() == 2) */{
+       return const SizedBox();
+     }
+  }
 }
+
+
+
+
+

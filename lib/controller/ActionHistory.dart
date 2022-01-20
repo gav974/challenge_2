@@ -47,5 +47,9 @@ void nextQuestion ( numberChoice) {
     return _history[_indexHistory].reponseTwo;
   }
 
+  int getIndex(){
+  return _indexHistory;
+  }
+
 }
 
