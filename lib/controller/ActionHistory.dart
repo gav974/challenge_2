@@ -11,6 +11,7 @@ final List<Question> _history = [
   Question(q:" Woaw ! Quelle évasion ! ",ro:" Woaw ! Quelle évasion ! ",rt:""),
   Question(q: "En traversant la route du littoral, vous réfléchissez à la sagesse douteuse de poignarder quelqu’un pendant qu’il conduit une voiture dans laquelle vous êtes.",ro:"Recommencer",rt:""),
   Question(q:"Vous vous faites un bon dalon et vous chantez le dernier son de T-matt ensemble. Il vous dépose à Cambaie et il vous demande si vous connaissez un bon endroit pour jeter un corps." ,ro:"Recommencer",rt:""),
+  Question(q:"Pas assez rapide, il vous à massacrer" ,ro:"Recommencer",rt:""),
 ];
 
 void nextQuestion ( numberChoice) {
@@ -29,6 +30,10 @@ void nextQuestion ( numberChoice) {
   }else if (_indexHistory == 2 && numberChoice == 2) {
     _indexHistory = 4;
   }else if ((_indexHistory == 3 || _indexHistory == 4 || _indexHistory == 5) && numberChoice == 1) {
+    _indexHistory = 0;
+  }else if ( numberChoice == 3) {
+    _indexHistory = 6;
+  }else if ( numberChoice == 1 && _indexHistory == 6 ) {
     _indexHistory = 0;
   }
   print ('choice $numberChoice');
